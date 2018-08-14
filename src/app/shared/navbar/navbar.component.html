@@ -6,6 +6,7 @@
       [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
       [mode]="(isHandset$ | async) ? 'over' : 'side'"
       [opened]="!(isHandset$ | async)"
+      [hidden]="!isUserLoggedIn"
     >
       <mat-toolbar color="primary">Menu</mat-toolbar>
       <mat-nav-list routerLinkActive = "active">
@@ -31,7 +32,7 @@
       </mat-nav-list>
     </mat-sidenav>
     <mat-sidenav-content>
-      <mat-toolbar color="primary" *ngIf="isUserLoggedIn">          
+      <mat-toolbar color="primary" [hidden]="!isUserLoggedIn">          
         <button
           type="button"
           aria-label="Toggle sidenav"
