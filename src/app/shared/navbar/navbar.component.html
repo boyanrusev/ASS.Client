@@ -1,74 +1,66 @@
 <mat-sidenav-container class="sidenav-container">
-    <mat-sidenav
-      #drawer
-      class="sidenav"
-      fixedInViewport="true"
-      [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
-      [mode]="(isHandset$ | async) ? 'over' : 'side'"
-      [opened]="!(isHandset$ | async)"
-      [hidden]="!isUserLoggedIn"
-    >
-      <mat-toolbar color="primary">Menu</mat-toolbar>
-      <mat-nav-list routerLinkActive = "active">
-        <mat-list-item (click)="showRepairCardSubMenu = !showRepairCardSubMenu" class="parent">
-            <span class="full-width" *ngIf="isExpanded || isShowing">Repair Cards</span>
-            <mat-icon class="menu-button" [ngClass]="{'rotated' : showRepairCardSubMenu}" *ngIf="isExpanded || isShowing">expand_more</mat-icon>
-        </mat-list-item>
-        <div class="submenu" [ngClass]="{'expanded' : showRepairCardSubMenu}" *ngIf="isShowing || isExpanded" [hidden]="!showRepairCardSubMenu">
-            <mat-list-item [routerLink]="['register']">Create RepairCard</mat-list-item>
-            <mat-list-item [routerLink]="['/repairCards']">View Finished Repair Cards</mat-list-item>
-        </div>
-        <a mat-list-item href="#">Offers</a>
-        <mat-list-item (click)="showWarehouseSubMenu = !showWarehouseSubMenu" class="parent">
-            <span class="full-width" *ngIf="isExpanded || isShowing">Warehouse</span>
-            <mat-icon class="menu-button" [ngClass]="{'rotated' : showWarehouseSubMenu}" *ngIf="isExpanded || isShowing">expand_more</mat-icon>
-        </mat-list-item>
-        <div class="submenu" [ngClass]="{'expanded' : showWarehouseSubMenu}" *ngIf="isShowing || isExpanded" [hidden]="!showWarehouseSubMenu">
-            <mat-list-item>Invoices</mat-list-item>
-            <mat-list-item>Materials</mat-list-item>
-            <mat-list-item>Others</mat-list-item>
-        </div>
-        <a mat-list-item href="#">Settings</a>
-      </mat-nav-list>
-    </mat-sidenav>
-    <mat-sidenav-content>
-      <mat-toolbar color="primary" [hidden]="!isUserLoggedIn">          
-        <button
-          type="button"
-          aria-label="Toggle sidenav"
-          mat-icon-button
-          (click)="drawer.toggle()">
-          <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+  <mat-sidenav #drawer class="sidenav" fixedInViewport="true" [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+    [mode]="(isHandset$ | async) ? 'over' : 'side'" [opened]="!(isHandset$ | async)" [hidden]="!isUserLoggedIn">
+    <mat-toolbar color="primary">Menu</mat-toolbar>
+    <mat-nav-list routerLinkActive="active">
+      <mat-list-item (click)="showRepairCardSubMenu = !showRepairCardSubMenu" class="parent">
+        <span class="full-width" *ngIf="isExpanded || isShowing">Repair Cards</span>
+        <mat-icon class="menu-button" [ngClass]="{'rotated' : showRepairCardSubMenu}" *ngIf="isExpanded || isShowing">expand_more</mat-icon>
+      </mat-list-item>
+      <div class="submenu" [ngClass]="{'expanded' : showRepairCardSubMenu}" *ngIf="isShowing || isExpanded" [hidden]="!showRepairCardSubMenu">
+        <mat-list-item [routerLink]="['register']">Create RepairCard</mat-list-item>
+        <mat-list-item [routerLink]="['/repairCards']">View Finished Repair Cards</mat-list-item>
+      </div>
+      <a mat-list-item href="#">Offers</a>
+      <mat-list-item (click)="showWarehouseSubMenu = !showWarehouseSubMenu" class="parent">
+        <span class="full-width" *ngIf="isExpanded || isShowing">Warehouse</span>
+        <mat-icon class="menu-button" [ngClass]="{'rotated' : showWarehouseSubMenu}" *ngIf="isExpanded || isShowing">expand_more</mat-icon>
+      </mat-list-item>
+      <div class="submenu" [ngClass]="{'expanded' : showWarehouseSubMenu}" *ngIf="isShowing || isExpanded" [hidden]="!showWarehouseSubMenu">
+        <mat-list-item>Invoices</mat-list-item>
+        <mat-list-item>Materials</mat-list-item>
+        <mat-list-item>Others</mat-list-item>
+      </div>
+      <a mat-list-item href="#">Settings</a>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <mat-toolbar color="primary" [hidden]="!isUserLoggedIn">
+      <button type="button" aria-label="Toggle sidenav" mat-icon-button (click)="drawer.toggle()">
+        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+      </button>
+      <button mat-button [routerLink]="['/home']">
+        <mat-icon class="mr-1">home</mat-icon>
+        Auto Service System
+      </button>
+      <span class="spacer"></span>
+      <button mat-button [matMenuTriggerFor]="menu" fxShow.lt-md="false" fxShow.gt-sm="true">
+        <mat-icon>account_circle</mat-icon>
+        <span class="ml-2">Account</span>
+      </button>
+      <button mat-icon-button [matMenuTriggerFor]="menu" fxShow.lt-md="true" fxShow.gt-sm="false">
+        <mat-icon>account_circle</mat-icon>
+      </button>
+      <mat-menu #menu="matMenu" overlapTrigger="false">
+        <button mat-menu-item>
+          <mat-icon>account_circle</mat-icon>
+          <span>My Account</span>
         </button>
-        <button mat-button>
-            <mat-icon class="mr-1">home</mat-icon>
-            Auto Service System
-          </button>
-        <span class="spacer"></span>
-        <button mat-button [matMenuTriggerFor]="menu" fxShow.lt-md="false" fxShow.gt-sm="true">
-            <mat-icon>account_circle</mat-icon>
-            <span class="ml-2">Account</span>
-          </button>
-          <button mat-icon-button [matMenuTriggerFor]="menu" fxShow.lt-md="true" fxShow.gt-sm="false">
-            <mat-icon>account_circle</mat-icon>
-          </button>
-        <mat-menu #menu="matMenu" overlapTrigger="false">
-            <button mat-menu-item>
-              <mat-icon>account_circle</mat-icon>
-              <span>My Account</span>
-            </button>
-            <button mat-menu-item>
-              <mat-icon>settings</mat-icon>
-              <span>Settings</span>
-            </button>
-            <button mat-menu-item>
-              <mat-icon>money</mat-icon>
-              <span>Billing</span>
-            </button>
-          </mat-menu>
-          <button mat-icon-button [routerLink]="['/login']"><mat-icon class="ml-3" title="Logout" >exit_to_app</mat-icon></button>
-      </mat-toolbar>
+        <button mat-menu-item>
+          <mat-icon>settings</mat-icon>
+          <span>Settings</span>
+        </button>
+        <button mat-menu-item>
+          <mat-icon>money</mat-icon>
+          <span>Billing</span>
+        </button>
+      </mat-menu>
+      <button mat-icon-button [routerLink]="['/login']">
+        <mat-icon class="ml-3" title="Logout">exit_to_app</mat-icon>
+      </button>
+    </mat-toolbar>
+    <div class="mainContent">
       <router-outlet></router-outlet>
-    </mat-sidenav-content>
-  </mat-sidenav-container>
-  
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>
