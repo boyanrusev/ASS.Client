@@ -16,6 +16,8 @@ import { AppMaterialModule } from './app-material.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FlexLayoutModule } from "@angular/flex-layout";
 import { RepairCardModule } from './modules/repairCardModule/repairCard.module';
+import { HomeLayoutComponent } from './shared/layouts/main-layout.component';
+import { LoginLayoutComponent } from './shared/layouts/login-layout.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +25,9 @@ import { RepairCardModule } from './modules/repairCardModule/repairCard.module';
     LoginComponent,
     HomeComponent,
     RegisterComponent,
-    NavbarComponent
+    NavbarComponent,
+    HomeLayoutComponent,
+    LoginLayoutComponent
   ],
   imports: [
     BrowserModule,
@@ -33,7 +37,7 @@ import { RepairCardModule } from './modules/repairCardModule/repairCard.module';
     BrowserAnimationsModule,
     FlexLayoutModule,
     RepairCardModule,
-    RouterModule.forRoot(appRoutes, { enableTracing: true })
+    RouterModule.forRoot(appRoutes, { enableTracing: true }) // debugging routes
   ],
   exports: [
     AppMaterialModule,
