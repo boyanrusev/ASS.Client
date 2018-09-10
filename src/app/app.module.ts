@@ -1,6 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
 import { AppComponent } from './app.component';
 import { LoginComponent } from './shared/login/login.component';
 import { HomeComponent } from './shared/home/home.component';
@@ -36,12 +35,12 @@ import { LoginLayoutComponent } from './shared/layouts/login-layout.component';
     AppMaterialModule,
     BrowserAnimationsModule,
     FlexLayoutModule,
-    RepairCardModule,
     RouterModule.forRoot(appRoutes, { enableTracing: true }) // debugging routes
   ],
   exports: [
     AppMaterialModule,
-    RouterModule
+    RouterModule,
+    RepairCardModule
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },

@@ -1,3 +1,4 @@
+import { AppModule } from './../../app.module';
 import { NgModule } from '@angular/core';
 import { AppMaterialModule } from '../../app-material.module';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
@@ -13,10 +14,6 @@ import { repairCardRoutes } from './repairCard.routing';
         ListRepairCardsComponentComponent],
     imports: [
         RouterModule.forChild(repairCardRoutes)
-    ],
-    exports: [
-        AppMaterialModule,
-        RouterModule
     ],
     providers: [
         { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },

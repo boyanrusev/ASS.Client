@@ -5,16 +5,6 @@ import { Routes } from "@angular/router";
 import { RegisterComponent } from "./shared/register/register.component";
 import { HomeLayoutComponent } from './shared/layouts/main-layout.component';
 import { LoginLayoutComponent } from './shared/layouts/login-layout.component';
-import { ListRepairCardsComponentComponent } from './modules/repairCardModule/list-repair-cards-component/list-repair-cards-component.component';
-
-// export const appRoutes: Routes = [
-//     { path: '', component: HomeComponent, canActivate: [AuthGuard] },
-//     { path: 'login', component: LoginComponent },
-//     { path: 'register', component: RegisterComponent },
-//     { path: '**', redirectTo: '' },
-//     { path: 'repairCards', loadChildren: './modules/repairCardModule/repairCard.module#RepairCardModule' }
-// ];
-
 
 export const appRoutes: Routes = [
     {

@@ -4,12 +4,14 @@ import { Routes } from "../../../../node_modules/@angular/router";
 import { HomeLayoutComponent } from '../../shared/layouts/main-layout.component';
 
 export const repairCardRoutes: Routes = [
-    { 
-        path: 'repairCards', 
-        canActivate: [AuthGuard],
+    {
+        path: 'repairCards',
         component: HomeLayoutComponent,
         children: [
-            { path: '', component: ListRepairCardsComponentComponent }
-      ]
+            {
+                path: '',
+                component: ListRepairCardsComponentComponent
+            }
+        ]
     }
 ];

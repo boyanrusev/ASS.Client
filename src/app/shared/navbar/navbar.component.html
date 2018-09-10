@@ -9,6 +9,7 @@
       </mat-list-item>
       <div class="submenu" [ngClass]="{'expanded' : showRepairCardSubMenu}" *ngIf="isShowing || isExpanded" [hidden]="!showRepairCardSubMenu">
         <mat-list-item [routerLink]="['/register']">Create RepairCard</mat-list-item>
+        <mat-list-item [routerLink]="['/home']">Home</mat-list-item>
         <mat-list-item [routerLink]="['/repairCards']">View Finished Repair Cards</mat-list-item>
       </div>
       <a mat-list-item href="#">Offers</a>
